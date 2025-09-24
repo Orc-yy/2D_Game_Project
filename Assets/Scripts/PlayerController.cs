@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+
+    void Move()
+    {
         Vector2 direction = moveInput.normalized;
 
         if (direction.sqrMagnitude > 0.01f)
@@ -24,7 +31,14 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-        
+
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
+    }
+    
+    // 넉백 기능은 고려하지 않아서 나중에 추가하면 FixedUpdate로 옮기기
+    void Shout()
+    {
+        var bullet = ObjectPoolManager.instance.Pool.Get();
+        bullet.transform.position = this.transform.position;
     }
 }

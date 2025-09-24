@@ -16,13 +16,13 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "attack",
-                    "type": "Button",
+                    "name": "Attack",
+                    "type": "Value",
                     "id": "b6b96d10-5eaf-483a-8120-4c9d00232c98",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "useItem",
@@ -35,17 +35,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "1d8f8754-d7a8-4808-9a7e-c9dfe77f6f8f",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "511322d3-a6ac-482f-b6da-0091c92da93c",
@@ -111,6 +100,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4cadeb9b-5978-410c-8fa1-b7ce409ab41c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
