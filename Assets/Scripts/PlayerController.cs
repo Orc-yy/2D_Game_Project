@@ -5,10 +5,14 @@ using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
+    // Private
     [SerializeField]
     private float speed;
     private float rotationSpeed = 10f;
     private Vector2 moveInput;
+
+    // Public
+    public Vector2 direction;
 
     public void OnMove(InputValue value)
     {
@@ -22,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        Vector2 direction = moveInput.normalized;
+        direction = moveInput.normalized;
 
         if (direction.sqrMagnitude > 0.01f)
         {
@@ -35,10 +39,4 @@ public class PlayerController : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
     }
     
-    // 넉백 기능은 고려하지 않아서 나중에 추가하면 FixedUpdate로 옮기기
-    void Shout()
-    {
-        var bullet = ObjectPoolManager.instance.Pool.Get();
-        bullet.transform.position = this.transform.position;
-    }
 }
